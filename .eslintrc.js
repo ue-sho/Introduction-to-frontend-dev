@@ -27,6 +27,7 @@ module.exports = {
   plugins: ["react", "@typescript-eslint"],
   rules: {
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-var-requires": 0,
     "react/prop-types": "off",
     "prettier/prettier": [
       "error",
