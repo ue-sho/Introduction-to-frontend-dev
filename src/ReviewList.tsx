@@ -1,37 +1,37 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import type { Review } from './app'
+import React, { useState } from "react";
+import styled from "styled-components";
+import type { Review } from "./app";
 
 export const Item = styled.li`
   border-bottom: 1px solid #d6d6d6;
   font-size: 1rem;
   padding: 15px 0;
-`
+`;
 
 export const Name = styled.p`
   margin: 0;
-`
+`;
 
 export const Comment = styled.p`
   margin: 5px 0 0;
-`
+`;
 
 const Like = styled.p`
   margin: 10px 0 0;
   text-align: right;
-`
+`;
 
 export const LikeButton = styled.a`
   color: #000;
   display: inline-block;
   text-decoration: none;
   &:hover {
-    color: #F43C3C;
+    color: #f43c3c;
   }
-`
+`;
 
 function ReviewListItem({ review }: { review: Review }) {
-  const [likeCount, setLikeCount] = useState(review.like)
+  const [likeCount, setLikeCount] = useState(review.like);
 
   return (
     <Item>
@@ -43,7 +43,7 @@ function ReviewListItem({ review }: { review: Review }) {
         </LikeButton>
       </Like>
     </Item>
-  )
+  );
 }
 
 const List = styled.ul`
@@ -51,12 +51,14 @@ const List = styled.ul`
   list-style: none;
   margin-top: 20px;
   padding: 0;
-`
+`;
 
 export default function ReviewList({ reviews }: { reviews: Review[] }) {
   return (
     <List>
-      {reviews.map(review => <ReviewListItem key={review.id} review={review} />)}
+      {reviews.map((review) => (
+        <ReviewListItem key={review.id} review={review} />
+      ))}
     </List>
-  )
+  );
 }
