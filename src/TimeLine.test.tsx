@@ -3,23 +3,22 @@ jest.mock('./api')
 import React from 'react'
 import { act } from 'react-dom/test-utils'
 import { mount } from 'enzyme'
-import Timeline from './Timeline'
+import Timeline, { Title } from './Timeline'
+import BookList from './BookList'
 
 describe('<Timeline>', () => {
-  test('should return <h2> element', async () => {
-    /*　actでラップするのはuseEffectなどのHockを
-        テスト対象のコンポーネントが使用していた時
-        テストが実行できなくなる問題の回避方法 */
+
+  test('should display page title', async () => {
     await act(async () => {
       const wrapper = mount(<Timeline />)
-      expect(wrapper.find('.page__title').text()).toBe('タイムライン')
+      expect(wrapper.find(Title).text()).toBe('タイムライン')
     })
   })
 
   test('should return <ul> element', async () => {
     await act(async () => {
       const wrapper = mount(<Timeline />)
-      expect(wrapper.find('ul').is('.book-list')).toBe(true)
+      expect(wrapper.find(BookList).length).toBe(1)
     })
   })
 })
