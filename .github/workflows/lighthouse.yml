@@ -10,6 +10,6 @@ jobs:
       - name: Audit URL using lighthouse
         uses: treosh/lighthouse-ci-action@v3
         with:
-          urls: https://www.shuwasystem.co.jp/smp/
+          urls: https://ue-sho.hateblo.jp/ # 計測したいURL　要変更
           configPath: ./.github/workflows/lighthouserc.json
           uploadArtifacts: true
