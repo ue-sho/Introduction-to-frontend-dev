@@ -1,7 +1,5 @@
 name: Measure Web Performance
-on:
-  schedule:
-    - cron: '0 1,5,9,13,17,21 * * *'
+on: [push, pull_request]
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
